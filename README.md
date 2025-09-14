@@ -21,5 +21,5 @@ A browser-based secure file sharing platform that combines end-to-end encryption
 - Protection against self-sending and unauthorized access
 
 ## Current Collaborators 
-kenmentor:[https://github.com/kenmentor]
+[kenmentor](https://github.com/kenmentor)
 
