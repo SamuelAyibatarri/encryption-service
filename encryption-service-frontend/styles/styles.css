@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+:root {
+    --background-color: #FEFEFE;
+    --color1: #FFF;
+    --color2: #3361B5;
+    --border-color: #ddd;
+    --margin: 2rem;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    padding: var(--margin); 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Styling for the dock*/
+
+.dock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 30px;
+    width: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.10);
+    z-index: 1000;
+}
+
+.dock img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.dock img:hover {
+    border: 1px solid cornflowerblue;
+}
+
+.dashboard {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+}
+
+.my-uploads-container ,.recieved-files-container{
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem 1rem 0;
+    /* border: 1px solid; */
+}
+.my-uploads, .recieved-files {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.upload-list, .recieved-list {
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid; */
+    padding: 1rem 1rem 1rem 0;
+}
+
+.file {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    margin: 1rem 0;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.file .file-list-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.file .see-more {
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.file .file-list-size {
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.file .buttons .download-file {
+    width: 32px;
+    height: 32px;
+    color: #6495ed;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 2px;
+}
+
+.file .buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.send, .upload-page {
+    display: none;  /* To toggle the visibility of the upload page*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.file-insert{
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    /* border: 1px solid var(--border-color); */
+}
+
+.file-insert p {
+    font-size: 20px;
+}
+
+
+.upload-progress {
+    width: 100%;
+    height: 100%;
+    margin-top: 1.3rem;
+    border-radius: 6px;
+    /* border: 1px solid var(--border-color); */
+}
+
+.bordered {
+  display: inline-block;
+  padding: 20px;
+  border: dashed 4px var(--border-color);
+
+  border-style: dashed;
+
+  /* Individual border image properties */
+  border-image-source: url("https://i.sstatic.net/wLdVc.png");
+  border-image-slice: 2;
+  border-image-repeat: round;
+
+  /* or use the shorthand border-image */
+  border-image: url("https://i.sstatic.net/wLdVc.png") 2 round;
+
+  border-radius: 6px;
+}
+
+
+/*The border image of this one creates wider gaps*/
+
+.largeGaps {
+  border-image-source: url("https://i.sstatic.net/LKclP.png");
+}
+
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px dashed var(--border-color); */
+}
+
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.upload-ht {
+    display: none;
+}
+
+.upload input {
+    display: none;
+}
+
+.upload-container span {
+    color: var(--border-color);
+}
+
+.send-page {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-height: 100%;    
+    padding: 50px;
+} 
+
+.send-page div {
+    display: flex;
+    flex-direction: column;
+}
+
+.send-page div label {
+    font-size: 20px;
+}
+
+.send-page div input {
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 17px;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+form input.button {
+    color: #fff;
+    background: black;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 1.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    height: 60px;
+    transition: 0.4s;
+}
+
+form input.button:hover {
+    background-color: cornflowerblue;
+    color: black;
+    border: none;
+}
+
+.file-icon {
+    width: 100px;
+    height: 100px;
+    color: var(--border-color);
+}
+
+.small-text {
+    font-size: 1rem;
+    color: cornflowerblue;
+}
+
+.popup {
+    display: none;
+    width: auto;
+    height: auto;
+    padding: 5rem;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+.popup div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.popup div label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.popup div input {
+    height: 60px;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 17px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+}
+
+.popup div .button {
+    background-color: black;
+    color: white;
+}
+
+.profile-page {
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-page div {
+    font-weight: 500;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.profile-page div div {
+    margin: .6rem;
+}
+
+.trash-icon {
+    width: 32px;
+    height: 32px;
+    stroke: red !important ;
+    cursor: pointer;
+}

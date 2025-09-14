@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Encryption</title>
+</head>
+<body>
+    <!-- Dashboard -->
+     <div class="dashboard">
+        <div class="my-uploads-container">
+            <div class="my-uploads">
+                <h1>My Uploads</h1>
+                <div class="upload-list">
+                    <div class="file">
+                        <div>
+                            <div class="file-list-name">File name</div>
+                            <div class="file-list-size">File size</div>
+                        </div>
+                        <p class="download-file">download</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recieved-files-container">
+            <div class="recieved-files">
+                <h1>Recieved Files</h1>
+                <div class="recieved-list"></div>
+            </div>
+        </div>
+     </div>
+
+    <!-- Send Page -->
+    <!-- Upload File Field -->
+    <div class="send">
+            <div class="file-insert">
+            <div class="upload-container  bordered largeGaps">
+                <div class="upload">
+                    <input type="file" name="file-input" id="fileInput" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .txt, image/jpeg, image/png, image/jpg, .pdf">
+            <svg class="file-icon" width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 15V21M19 21L17 19M19 21L21 19M13 3H8.2C7.0799 3 6.51984 3 6.09202 3.21799C5.71569 3.40973 5.40973 3.71569 5.21799 4.09202C5 4.51984 5 5.0799 5 6.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.0799 21 8.2 21H14M13 3L19 9M13 3V7.4C13 7.96005 13 8.24008 13.109 8.45399C13.2049 8.64215 13.3578 8.79513 13.546 8.89101C13.7599 9 14.0399 9 14.6 9H19M19 9V11" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"/>
+
+            </svg>
+                </div>
+                <span>Select a file(s) by clicking or dragging it here.</span>
+            </div>
+            <div class="upload-progress">
+                <p class="upload-ht">Selected Files:</p>
+                <div id="files-list"></div>
+            </div>
+        </div> 
+    <!-- Send File Field -->    
+        <div class="send-page">
+            <form action="#" method="post">
+                <div>  
+                    <label for="recipient_id">Recipient's Username:</label>
+                    <input type="text" placeholder="Enter Recipient's Username" id="userName">
+                </div>
+
+                <div>
+                    <label for="encryption_key">Encryption Key:</label>
+                    <input type="text" placeholder="Enter an Encryption Key" id="userKey"> 
+                </div>
+
+                <div>
+                    <label for="note">Add a note to your file (optional):</label>
+                    <input type="text" placeholder="Say Something About The File You Uploaded" id="file-note-send">
+                </div>
+
+                <input type="button" class="button" value="Send" id="sendBtn">
+            </form>
+        </div>
+    </div>
+
+    <!-- Upload Page-->
+     <div class="upload-page">
+        <div class="file-insert">
+            <div class="upload-container  bordered largeGaps">
+                <div class="upload" id="uploadArea">
+                    <input type="file" name="file-input" id="fileInput2" multiple accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, .txt, image/jpeg, image/png, image/jpg, .pdf">
+            <svg class="file-icon" width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 15V21M19 21L17 19M19 21L21 19M13 3H8.2C7.0799 3 6.51984 3 6.09202 3.21799C5.71569 3.40973 5.40973 3.71569 5.21799 4.09202C5 4.51984 5 5.0799 5 6.2V17.8C5 18.9201 5 19.4802 5.21799 19.908C5.40973 20.2843 5.71569 20.5903 6.09202 20.782C6.51984 21 7.0799 21 8.2 21H14M13 3L19 9M13 3V7.4C13 7.96005 13 8.24008 13.109 8.45399C13.2049 8.64215 13.3578 8.79513 13.546 8.89101C13.7599 9 14.0399 9 14.6 9H19M19 9V11" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round"/>
+
+            </svg>
+                </div>
+                <span>Select a file(s) by clicking or dragging it here.</span>
+            </div>
+            <div class="upload-progress">
+                <p class="upload-ht">Selected Files:</p>
+                <div id="files-list2"></div>
+            </div>
+        </div> 
+    <!-- Send File Field -->    
+        <div class="send-page">
+            <form action="#" method="post">
+
+                <div>
+                    <label for="encryption_key">Encryption Key:</label>
+                    <input type="text" placeholder="Enter an Encryption Key" id="userKeyUpload"> 
+                </div>
+
+                <div>
+                    <label for="note">Add a note to your upload (optional):</label>
+                    <input type="text" placeholder="Say Something About The File You Uploaded" id="file-note-upload">
+                </div>
+
+                <input type="button" class="button" value="Upload" id="uploadBtn">
+            </form>
+        </div>
+     </div>
+
+    <!-- Profile Page-->
+     <div class="profile-page">
+     </div>
+    <!-- Dock -->
+     <div class="dock">
+        <img src="assets/home.svg" alt="Dashboard" id="dashboard-page-btn">
+        <img src="assets/arrow-up.svg" alt="Uploads Icon" id="upload-page-btn">
+        <img src="assets/arrow-right.svg" alt="Send" id="send-page-btn">
+        <img src="assets/user-circle.svg" alt="Profile" id="profile-page-btn">
+     </div>
+
+     <!-- Pop Up Password Entry -->
+      <div class="popup" id="popup">
+        <div>
+            <label for="password">Enter Password:</label>
+            <input type="password" name="password" id="login-password-popup">
+            <input type="button" value="Submit" class="button" id="passBtn">
+        </div>
+      </div>
+
+     <script src="script/bundle.js"></script>
+    <script src="script/main.js" type="module"></script>
+</body>
+</html>
