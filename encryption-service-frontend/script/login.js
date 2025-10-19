@@ -16,71 +16,6 @@ function modBigInt(bytes, modulus) {
     return value % modulus;
 }
 
-// async function passwordToPrivateKeyandPublicKey(username, password, key = 'all') {
-//     console.log("Username: ", username);
-//     console.log("Type Of Username: ", typeof(username));
-//     console.log("Password: ", password);
-//     console.log("Type Of Password: ", typeof(password));
-//     const encoder = new TextEncoder();
-//     const input = encoder.encode(username + password); 
-//     console.log("Input: ", input)
-//     const keyMaterial = await crypto.subtle.importKey(
-//         "raw",
-//         input,
-//         "PBKDF2",
-//         false,
-//         ["deriveBits"]
-//     );
-
-//     console.log("Key Material: ", keyMaterial);
-
-//     const derivedBits = await crypto.subtle.deriveBits(
-//         {
-//             name: "PBKDF2",
-//             salt: encoder.encode("static-salt"),
-//             hash: "SHA-256"
-//         },
-//         keyMaterial,
-//         256
-//     );
-
-//     const hashArray = new Uint8Array(derivedBits);
-
-//     console.log("Hash array: ", hashArray);
-
-//     // Convert to bigint
-//     let privateKey = modBigInt(hashArray, SECP256K1_ORDER);
-//     if (privateKey === 0n) {
-//         throw new Error("Generated private key is invalid (zero).");
-//     }
-//     console.log("Private Key: ", privateKey);
-
-//     const privateKeyBytes = new Uint8Array(privateKey.toString(16).padStart(64, '0').match(/.{1,2}/g).map(b => parseInt(b, 16)));
-//     const publicKey = toHex(getPublicKey(privateKeyBytes, true));
-//     console.log("Public Key: ", publicKey);
-
-//     let result;
-//     switch (key) {
-//         case 'all':
-//             result = {
-//                 priv_key: toHex(privateKeyBytes),
-//                 pub_key: publicKey
-//             };
-//             break;
-//         case 'priv':
-//             result = toHex(privateKeyBytes);
-//             break;
-//         case 'pub':
-//             result = publicKey;
-//             break;
-//         default:
-//             result = null;
-//             break;
-//     }
-//     console.log(result);
-//     return result;
-// }
-
 async function passwordToPrivateKeyandPublicKey(username, password, key = 'all') {
     console.log("Username:", username);
     console.log("Type Of Username:", typeof username);
@@ -109,7 +44,7 @@ async function passwordToPrivateKeyandPublicKey(username, password, key = 'all')
             name: "PBKDF2",
             salt: encoder.encode("static-salt"),
             hash: "SHA-256",
-            iterations: 100000 // Specify iterations explicitly for consistency
+            iterations: 100000
         },
         keyMaterial,
         256
